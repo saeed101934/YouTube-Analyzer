@@ -1,78 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>YouTube Analyzer</title>
-  <style>
-    body{
-      margin:0;
-      font-family:Arial,sans-serif;
-      background:#0f172a;
-      color:white;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      height:100vh;
-      text-align:center;
-    }
-    .box{
-      background:#1e293b;
-      padding:30px;
-      border-radius:15px;
-      width:90%;
-      max-width:500px;
-      box-shadow:0 0 20px rgba(0,0,0,.3);
-    }
-    input{
-      width:100%;
-      padding:12px;
-      margin:15px 0;
-      border:none;
-      border-radius:8px;
-      font-size:16px;
-    }
-    button{
-      background:#ff0000;
-      color:white;
-      border:none;
-      padding:12px 20px;
-      border-radius:8px;
-      cursor:pointer;
-      font-size:16px;
-    }
-    #result{
-      margin-top:20px;
-      font-size:18px;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>YouTube Analyzer AI</title>
+
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<div class="box">
-  <h1>📺 YouTube Analyzer</h1>
-  <p>Enter a YouTube Channel URL</p>
+<div class="container">
 
-  <input type="text" id="channel" placeholder="https://youtube.com/@channel">
+<header>
 
-  <button onclick="analyze()">Analyze</button>
+<h1>📺 YouTube Analyzer AI</h1>
 
-  <div id="result"></div>
+<p>
+Analyze any YouTube Channel or Video
+</p>
+
+</header>
+
+<div class="searchBox">
+
+<input
+type="text"
+id="youtubeLink"
+placeholder="Paste YouTube Channel or Video URL">
+
+<button id="analyzeBtn">
+
+Analyze
+
+</button>
+
 </div>
 
-<script>
-function analyze(){
-  const url=document.getElementById("channel").value.trim();
+<div class="loading" id="loading">
 
-  if(url===""){
-    document.getElementById("result").innerHTML="❌ Please enter a channel URL.";
-    return;
-  }
+Analyzing...
 
-  document.getElementById("result").innerHTML=
-    "✅ URL received:<br><b>"+url+"</b><br><br>This is a demo page.";
-}
-</script>
+</div>
+
+<div class="dashboard">
+
+<div class="card">
+
+<h3>Estimated Daily Earnings</h3>
+
+<h2 id="daily">$0</h2>
+
+</div>
+
+<div class="card">
+
+<h3>Estimated Monthly Earnings</h3>
+
+<h2 id="monthly">$0</h2>
+
+</div>
+
+<div class="card">
+
+<h3>Estimated Yearly Earnings</h3>
+
+<h2 id="yearly">$0</h2>
+
+</div>
+
+<div class="card">
+
+<h3>Estimated RPM</h3>
+
+<h2 id="rpm">$0</h2>
+
+</div>
+
+<div class="card">
+
+<h3>Niche</h3>
+
+<h2 id="niche">Unknown</h2>
+
+</div>
+
+<div class="card">
+
+<h3>Category</h3>
+
+<h2 id="category">Unknown</h2>
+
+</div>
+
+<div class="card">
+
+<h3>Main Keywords</h3>
+
+<h2 id="keywords">
+
+Waiting...
+
+</h2>
+
+</div>
+
+<div class="card">
+
+<h3>Upload Timing</h3>
+
+<h2 id="upload">
+
+Waiting...
+
+</h2>
+
+</div>
+
+<div class="card">
+
+<h3>Upload Frequency</h3>
+
+<h2 id="frequency">
+
+Waiting...
+
+</h2>
+
+</div>
+
+<div class="card">
+
+<h3>Engagement Rate</h3>
+
+<h2 id="engagement">
+
+0%
+
+</h2>
+
+</div>
+
+<div class="card">
+
+<h3>SEO Score</h3>
+
+<h2 id="seo">
+
+0/100
+
+</h2>
+
+</div>
+
+<div class="card">
+
+<h3>Growth Score</h3>
+
+<h2 id="growth">
+
+0%
+
+</h2>
+
+</div>
+
+</div>
+
+</div>
+
+<script src="script.js"></script>
 
 </body>
 </html>
