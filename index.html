@@ -1,10 +1,78 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>YouTube Analyzer</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YouTube Analyzer</title>
+  <style>
+    body{
+      margin:0;
+      font-family:Arial,sans-serif;
+      background:#0f172a;
+      color:white;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      height:100vh;
+      text-align:center;
+    }
+    .box{
+      background:#1e293b;
+      padding:30px;
+      border-radius:15px;
+      width:90%;
+      max-width:500px;
+      box-shadow:0 0 20px rgba(0,0,0,.3);
+    }
+    input{
+      width:100%;
+      padding:12px;
+      margin:15px 0;
+      border:none;
+      border-radius:8px;
+      font-size:16px;
+    }
+    button{
+      background:#ff0000;
+      color:white;
+      border:none;
+      padding:12px 20px;
+      border-radius:8px;
+      cursor:pointer;
+      font-size:16px;
+    }
+    #result{
+      margin-top:20px;
+      font-size:18px;
+    }
+  </style>
 </head>
 <body>
-<h1>YouTube Analyzer</h1>
-<p>Website is under development...</p>
+
+<div class="box">
+  <h1>📺 YouTube Analyzer</h1>
+  <p>Enter a YouTube Channel URL</p>
+
+  <input type="text" id="channel" placeholder="https://youtube.com/@channel">
+
+  <button onclick="analyze()">Analyze</button>
+
+  <div id="result"></div>
+</div>
+
+<script>
+function analyze(){
+  const url=document.getElementById("channel").value.trim();
+
+  if(url===""){
+    document.getElementById("result").innerHTML="❌ Please enter a channel URL.";
+    return;
+  }
+
+  document.getElementById("result").innerHTML=
+    "✅ URL received:<br><b>"+url+"</b><br><br>This is a demo page.";
+}
+</script>
+
 </body>
 </html>
