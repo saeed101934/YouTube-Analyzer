@@ -1,45 +1,47 @@
 const btn = document.getElementById("analyzeBtn");
 const loading = document.getElementById("loading");
 
-btn.addEventListener("click", () => {
+btn.addEventListener("click", async () => {
 
-const url = document.getElementById("youtubeLink").value.trim();
+  const url = document.getElementById("youtubeLink").value.trim();
 
-if(url===""){
-alert("Please paste a YouTube Channel or Video URL.");
-return;
-}
+  if (!url) {
+    alert("Please paste a YouTube URL.");
+    return;
+  }
 
-loading.style.display="block";
+  loading.style.display = "block";
 
-setTimeout(()=>{
+  try {
 
-loading.style.display="none";
+    const response = await fetch("/api/analyze?url=" + encodeURIComponent(url));
+    const data = await response.json();
 
-document.getElementById("daily").innerText="$25 - $180";
+    loading.style.display = "none";
 
-document.getElementById("monthly").innerText="$750 - $5,400";
+    if (!data.success) {
+      alert(data.message);
+      return;
+    }
 
-document.getElementById("yearly").innerText="$9K - $64K";
+    document.getElementById("daily").innerText = "Estimated";
+    document.getElementById("monthly").innerText = data.estimatedMonthlyRevenue;
+    document.getElementById("yearly").innerText = "≈ Annual Estimate";
+    document.getElementById("rpm").innerText = "$" + data.rpm;
+    document.getElementById("niche").innerText = data.niche;
+    document.getElementById("category").innerText = data.niche;
+    document.getElementById("keywords").innerText = data.keywords.join(", ");
+    document.getElementById("upload").innerText = data.uploadTime;
+    document.getElementById("frequency").innerText = "Estimated";
+    document.getElementById("engagement").innerText = "Estimated";
+    document.getElementById("seo").innerText = data.seoScore + "/100";
+    document.getElementById("growth").innerText = data.growthScore + "%";
 
-document.getElementById("rpm").innerText="$3.75";
+  } catch (err) {
 
-document.getElementById("niche").innerText="Psychology";
+    loading.style.display = "none";
+    alert("Something went wrong.");
 
-document.getElementById("category").innerText="Education";
-
-document.getElementById("keywords").innerText="Psychology, Human Behavior, Facts";
-
-document.getElementById("upload").innerText="7:00 PM - 9:00 PM";
-
-document.getElementById("frequency").innerText="4 Videos / Week";
-
-document.getElementById("engagement").innerText="8.4%";
-
-document.getElementById("seo").innerText="92 / 100";
-
-document.getElementById("growth").innerText="87%";
-
-},2000);
+  }
 
 });
