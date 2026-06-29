@@ -32,4 +32,31 @@ export default async function handler(req, res) {
       });
     }
 
+    
     const channel = await getChannelById(channelId);
+
+res.status(200).json({
+  success: true,
+  niche: "General",
+  rpm: "5.50",
+  estimatedMonthlyRevenue: "$500 - $1000",
+  seoScore: 85,
+  growthScore: 80,
+  uploadTime: "6 PM - 9 PM",
+  keywords: [
+    "youtube",
+    "growth",
+    "seo",
+    "ai"
+  ]
+});
+
+} catch (error) {
+  console.error(error);
+
+  return res.status(500).json({
+    success: false,
+    message: error.message || "Internal Server Error"
+  });
+}
+}
