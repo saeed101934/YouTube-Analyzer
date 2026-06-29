@@ -31,6 +31,48 @@ header p{
 color:#b8c2cc;
 font-size:18px;
 }
+header p{
+color:#b8c2cc;
+font-size:18px;
+}
+
+/* 👇 Yahan se mera code paste karna */
+
+.logo h1{
+font-size:42px;
+font-weight:800;
+margin-bottom:10px;
+}
+
+.logo span{
+color:#ff0000;
+}
+
+header h2{
+font-size:32px;
+font-weight:700;
+line-height:1.4;
+margin:15px 0;
+color:#ffffff;
+}
+
+header h2 span{
+color:#7c3aed;
+}
+
+header p{
+max-width:650px;
+margin:0 auto;
+font-size:18px;
+line-height:1.7;
+color:#b8c2cc;
+}
+
+.searchBox{
+display:flex;
+gap:10px;
+margin:30px 0;
+}
 
 .searchBox{
 display:flex;
