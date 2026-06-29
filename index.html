@@ -1,35 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>YouTube Analyzer AI</title>
+<title>TubeMind AI</title>
 
 <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
 <div class="container">
 
-<header>
+<header class="hero">
 
-  <div class="logo">
-    <h1>🧠 TubeMind <span>AI</span></h1>
-  </div>
+<div class="brand">
 
-  <h2>
-    Don't just analyze your channel.<br>
-    <span>Get an AI growth strategy.</span>
-  </h2>
+<h1>🧠 TubeMind <span>AI</span></h1>
 
-  <p>
-    Analyze any YouTube channel or video and discover
-    powerful AI insights to grow faster.
-  </p>
+<p class="tagline">
+Don't just analyze your channel.<br>
+Get an AI growth strategy.
+</p>
 
-</header>
+</div>
+
+<div class="hero-box">
+
+<h2>Analyze any YouTube Channel or Video</h2>
+
+<p>
+Paste any YouTube channel or video URL and let TubeMind AI discover powerful growth insights, SEO opportunities and AI recommendations.
+</p>
 
 <div class="searchBox">
 
@@ -40,7 +46,7 @@ placeholder="Paste YouTube Channel or Video URL">
 
 <button id="analyzeBtn">
 
-Analyze
+🚀 Analyze
 
 </button>
 
@@ -48,13 +54,66 @@ Analyze
 
 <div class="loading" id="loading">
 
-Analyzing...
+🧠 TubeMind AI is analyzing...
 
 </div>
 
-<div class="dashboard">
+</div>
 
-<div class="card">
+</header>
+
+<section class="overview">
+
+<h2>📺 Channel Overview</h2>
+
+<div class="overview-card">
+
+<div class="channel-logo">
+
+<img
+id="channelLogo"
+src="https://placehold.co/100x100"
+alt="Channel Logo">
+
+</div>
+
+<div class="channel-info">
+
+<h3 id="channelName">
+
+Waiting...
+
+</h3>
+
+<p>Subscribers:
+<span id="subscribers">-</span></p>
+
+<p>Views:
+<span id="views">-</span></p>
+
+<p>Videos:
+<span id="videos">-</span></p>
+
+</div>
+
+<div class="score-box">
+
+<h2 id="tubeScore">
+
+--/100
+
+</h2>
+
+<p>TubeMind Score</p>
+
+</div>
+
+</div>
+
+</section>
+
+<div class="dashboard">
+  <div class="card">
 
 <h3>Estimated Daily Earnings</h3>
 
@@ -175,54 +234,63 @@ Waiting...
 </div>
 
 </div>
+<section class="ai-summary">
+
+<div class="summary-card">
+
+<h2>🧠 AI Summary</h2>
+
+<p id="aiSummary">
+TubeMind AI will generate a complete AI growth strategy after analyzing your YouTube channel or video.
+</p>
 
 </div>
-  <section class="ai-summary">
-
-  <div class="summary-card">
-
-    <h2>🧠 AI Summary</h2>
-
-    <p id="aiSummary">
-      TubeMind AI will generate a complete growth strategy after analyzing the channel.
-    </p>
-
-  </div>
 
 </section>
 
 <section class="recommendations">
 
-  <h2>📈 AI Recommendations</h2>
+<h2>📈 AI Recommendations</h2>
 
-  <div class="recommendation-grid">
+<div class="recommendation-grid">
 
-    <div class="recommendation-card">
-      <h3>🎯 Best Upload Time</h3>
-      <p id="uploadRecommendation">
-        Waiting for analysis...
-      </p>
-    </div>
+<div class="recommendation-card">
 
-    <div class="recommendation-card">
-      <h3>🔥 Growth Opportunity</h3>
-      <p id="growthRecommendation">
-        Waiting for analysis...
-      </p>
-    </div>
+<h3>🎯 Best Upload Time</h3>
 
-    <div class="recommendation-card">
-      <h3>🚀 Next Step</h3>
-      <p id="nextRecommendation">
-        Waiting for analysis...
-      </p>
-    </div>
+<p id="uploadRecommendation">
+Waiting for analysis...
+</p>
 
-  </div>
+</div>
 
-  </section>
+<div class="recommendation-card">
+
+<h3>🔥 Growth Opportunity</h3>
+
+<p id="growthRecommendation">
+Waiting for analysis...
+</p>
+
+</div>
+
+<div class="recommendation-card">
+
+<h3>🚀 Next Step</h3>
+
+<p id="nextRecommendation">
+Waiting for analysis...
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+</div>
 
 <script src="script.js"></script>
 
 </body>
-</html>
+  </html>
