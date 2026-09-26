@@ -13,18 +13,13 @@ export default async function handler(req, res) {
 
     let channelId = "";
 
-    // Channel ID URL
     if (url.includes("/channel/")) {
       channelId = url.split("/channel/")[1].split("/")[0];
-    }
-
-    // @username URL
+    } 
     else if (url.includes("/@")) {
-      const username = url.split("/@")[1].split("/")[0];
-      channelId = await searchChannel(username);
-    }
-
-    // Custom URL
+      const handle = url.split("/@")[1].split("/")[0];
+      channelId = await searchChannel(handle);
+    } 
     else {
       return res.status(400).json({
         success: false,
@@ -32,31 +27,35 @@ export default async function handler(req, res) {
       });
     }
 
-    
     const channel = await getChannelById(channelId);
 
-res.status(200).json({
-  success: true,
-  niche: "General",
-  rpm: "5.50",
-  estimatedMonthlyRevenue: "$500 - $1000",
-  seoScore: 85,
-  growthScore: 80,
-  uploadTime: "6 PM - 9 PM",
-  keywords: [
-    "youtube",
-    "growth",
-    "seo",
-    "ai"
-  ]
-});
+    const stats = channel.statistics;
+    const snippet = channel.snippet;
 
-} catch (error) {
-  console.error(error);
+    return res.status(200).json({
+      success: true,
 
-  return res.status(500).json({
-    success: false,
-    message: error.message || "Internal Server Error"
-  });
-}
+      channel: {
+        id: channel.id,
+        title: snippet.title,
+        description: snippet.description,
+        thumbnail: snippet.thumbnails?.high?.url || "",
+        publishedAt: snippet.publishedAt
+      },
+
+      statistics: {
+        subscribers: stats.subscriberCount,
+        views: stats.viewCount,
+        videos: stats.videoCount
+      }
+    });
+
+  } catch (error) {
+    console.error("Analyze error:", error);
+
+    return res.status(500).json({
+      success: false,
+      message: error.message || "Internal Server Error"
+    });
+  }
 }
