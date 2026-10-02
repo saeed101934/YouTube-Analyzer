@@ -48,8 +48,8 @@ export default async function handler(req, res) {
     }
 
     // Channel information
-    const title = channel.title || "";
-    const description = channel.description || "";
+ const title = channel.snippet?.title || "";
+const description = channel.snippet?.description || "";
     const text = (title + " " + description).toLowerCase();
 
     // Detect niche from channel title + description
@@ -170,9 +170,9 @@ export default async function handler(req, res) {
     seoScore = Math.min(seoScore, 100);
 
     // Basic growth score
-    const subscribers = Number(channel.statistics?.subscribers || 0);
-    const views = Number(channel.statistics?.views || 0);
-    const videos = Number(channel.statistics?.videos || 0);
+   const subscribers = Number(channel.statistics?.subscriberCount || 0);
+const views = Number(channel.statistics?.viewCount || 0);
+const videos = Number(channel.statistics?.videoCount || 0);
 
     let growthScore = 40;
 
