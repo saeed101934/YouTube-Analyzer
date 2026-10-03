@@ -219,9 +219,9 @@ const videos = Number(channel.statistics?.videoCount || 0);
       },
 
       statistics: {
-        subscribers: channel.statistics?.subscribers || "0",
-        views: channel.statistics?.views || "0",
-        videos: channel.statistics?.videos || "0"
+        subscribers: channel.statistics?.subscriberCount || "0",
+views: channel.statistics?.viewCount || "0",
+videos: channel.statistics?.videoCount || "0"
       },
 
       analysis: {
