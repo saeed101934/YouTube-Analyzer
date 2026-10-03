@@ -39,6 +39,7 @@ export default async function handler(req, res) {
     }
 
     const channel = await getChannelById(channelId);
+    console.log("RAW CHANNEL DATA:", JSON.stringify(channel));
 
     if (!channel) {
       return res.status(404).json({
