@@ -27,7 +27,7 @@ btn.addEventListener("click", async () => {
 
     // Real YouTube channel data
     const channel = data.channel;
-    const stats = data.statistics;
+    const analysis = data.analysis;
 
     // Channel overview
     const channelTitle = document.getElementById("channelName");
@@ -66,17 +66,17 @@ btn.addEventListener("click", async () => {
     const growth = document.getElementById("growth");
 
     if (daily) daily.innerText = "Live Data";
-    if (monthly) monthly.innerText = "Calculating...";
-    if (yearly) yearly.innerText = "Calculating...";
-    if (rpm) rpm.innerText = "Calculating...";
-    if (niche) niche.innerText = "Paper Crafts";
-    if (category) category.innerText = "Howto & Style";
-    if (keywords) keywords.innerText = "Origami, Paper Crafts, DIY";
-    if (upload) upload.innerText = "Available";
-    if (frequency) frequency.innerText = stats.videos + " videos";
-    if (engagement) engagement.innerText = "Calculating...";
-    if (seo) seo.innerText = "Calculating...";
-    if (growth) growth.innerText = "Calculating...";
+if (monthly) monthly.innerText = analysis.estimatedMonthlyRevenue;
+if (yearly) yearly.innerText = analysis.estimatedMonthlyRevenue;
+if (rpm) rpm.innerText = "$" + analysis.rpm;
+  if (niche) niche.innerText = analysis.niche;
+if (category) category.innerText = analysis.category;
+    if (keywords) keywords.innerText = analysis.keywords.join(", ");
+    if (upload) upload.innerText = analysis.uploadTime;
+if (frequency) frequency.innerText = stats.videos + " videos";
+if (engagement) engagement.innerText = analysis.engagement;
+if (seo) seo.innerText = analysis.seoScore + "/100";
+if (growth) growth.innerText = analysis.growthScore + "/100";
 
   } catch (err) {
     loading.style.display = "none";
